@@ -30,12 +30,7 @@ target_link_libraries(obs-vst PRIVATE OBS::libobs Qt::Widgets)
 if(OS_MACOS)
   target_sources(obs-vst PRIVATE mac/EditorWidget-osx.mm mac/VSTPlugin-osx.mm)
 
-  # cmake-format: off
-  target_link_libraries(
-    obs-vst
-    PRIVATE "$<LINK_LIBRARY:FRAMEWORK,Cocoa.framework>"
-            "$<LINK_LIBRARY:FRAMEWORK,Foundation.framework>")
-  # cmake-format: on
+  target_link_libraries(obs-vst PRIVATE "-framework Cocoa" "-framework Foundation")
 elseif(OS_WINDOWS)
   target_sources(obs-vst PRIVATE win/VSTPlugin-win.cpp win/EditorWidget-win.cpp)
 

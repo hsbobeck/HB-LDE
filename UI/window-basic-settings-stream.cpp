@@ -134,11 +134,11 @@ void OBSBasicSettings::InitStreamPage()
 		&OBSBasicSettings::UpdateResFPSLimits);
 
 	connect(ui->customServer, &QLineEdit::textChanged, this,
-		&OBSBasicSettings::ServiceChanged);
+		[this](const QString &) { ServiceChanged(); });
 	connect(ui->customServer, &QLineEdit::textChanged, this,
 		&OBSBasicSettings::UpdateKeyLink);
 	connect(ui->key, &QLineEdit::textChanged, this,
-		&OBSBasicSettings::ServiceChanged);
+		[this](const QString &) { ServiceChanged(); });
 	connect(ui->key, &QLineEdit::textChanged, this,
 		&OBSBasicSettings::UpdateKeyLink);
 }
@@ -150,7 +150,7 @@ void OBSBasicSettings::LoadStream1Settings()
 
     obs_service_t* service_obj = main->GetService();
     const char* type = obs_service_get_type(service_obj);
-    bool is_rtmp_custom = (strcmp(type, "rtmp_custom") == 0);
+    //bool is_rtmp_custom = (strcmp(type, "rtmp_custom") == 0);
     //bool is_rtmp_common = (strcmp(type, "rtmp_common") == 0);
     bool is_whip = (strcmp(type, "whip_custom") == 0);
 

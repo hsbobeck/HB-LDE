@@ -110,6 +110,45 @@ function(target_disable target)
   set_property(GLOBAL APPEND PROPERTY OBS_MODULES_DISABLED ${target})
 endfunction()
 
+# obs_strip_agl_from_qt_if_needed: AGL was removed from the macOS 26+ SDK (QTBUG-137687).
+function(obs_strip_agl_from_qt_if_needed)
+  if(NOT OS_MACOS)
+    return()
+  endif()
+
+  string(REGEX MATCH "MacOSX([0-9]+)" _ "${CMAKE_OSX_SYSROOT}")
+  if(NOT CMAKE_MATCH_1 OR CMAKE_MATCH_1 LESS 26)
+    return()
+  endif()
+
+  set(_targets "")
+  if(TARGET WrapOpenGL::WrapOpenGL)
+    list(APPEND _targets WrapOpenGL::WrapOpenGL)
+  endif()
+  foreach(_component IN ITEMS Core Gui Widgets Network Svg Xml Multimedia)
+    if(TARGET Qt6::${_component})
+      list(APPEND _targets Qt6::${_component})
+    endif()
+  endforeach()
+
+  foreach(_target IN LISTS _targets)
+    get_target_property(_libs ${_target} INTERFACE_LINK_LIBRARIES)
+    if(NOT _libs)
+      continue()
+    endif()
+
+    set(_filtered_libs "")
+    foreach(_lib IN LISTS _libs)
+      if(_lib MATCHES "AGL")
+        continue()
+      endif()
+      list(APPEND _filtered_libs "${_lib}")
+    endforeach()
+
+    set_target_properties(${_target} PROPERTIES INTERFACE_LINK_LIBRARIES "${_filtered_libs}")
+  endforeach()
+endfunction()
+
 # find_qt: Macro to find best possible Qt version for use with the project:
 macro(find_qt)
   set(multiValueArgs COMPONENTS COMPONENTS_WIN COMPONENTS_MAC COMPONENTS_LINUX)
@@ -154,6 +193,10 @@ macro(find_qt)
       set_target_properties(Qt::${component} PROPERTIES INTERFACE_LINK_LIBRARIES Qt6::${component})
     endif()
   endforeach()
+
+  if(OS_MACOS)
+    obs_strip_agl_from_qt_if_needed()
+  endif()
 endmacro()
 
 # find_dependencies: Check linked interface and direct dependencies of target
