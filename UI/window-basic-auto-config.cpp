@@ -476,7 +476,7 @@ void AutoConfigStreamPage::OnOAuthStreamKeyConnected()
 				if (ui->doBandwidthTest->isChecked()) {
 					StreamDescription stream = {
 						"", "",
-						"LDE Test Stream"};
+						"HB-LDE Test Stream"};
 					if (ytAuth->InsertStream(stream)) {
 						ui->key->setText(stream.name);
 					}

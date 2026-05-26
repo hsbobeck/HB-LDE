@@ -14,9 +14,9 @@ static const QString serverResponseHeader =
 	QStringLiteral("HTTP/1.0 200 OK\n"
 		       "Connection: close\n"
 		       "Content-Type: text/html; charset=UTF-8\n"
-		       "Server: LDE\n"
+		       "Server: HB-LDE\n"
 		       "\n"
-		       "<html><head><title>LDE"
+		       "<html><head><title>HB-LDE"
 		       "</title></head>");
 
 static const QString responseTemplate =

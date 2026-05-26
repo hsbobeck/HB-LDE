@@ -75,7 +75,7 @@ bool HTTPPostData(const wchar_t *url, const BYTE *data, int dataLen,
 	/* -------------------------------------- *
 	 * connect to server                      */
 
-	hSession = WinHttpOpen(L"LDE Updater/3.0",
+	hSession = WinHttpOpen(L"HB-LDE Updater/3.0",
 			       WINHTTP_ACCESS_TYPE_DEFAULT_PROXY,
 			       WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS,
 			       0);

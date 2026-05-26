@@ -438,7 +438,7 @@ OBSBasic::OBSBasic(QWidget *parent)
 	installEventFilter(shortcutFilter);
 
 	stringstream name;
-	name << "LDE " << App()->GetVersionString();
+	name << "HB-LDE " << App()->GetVersionString();
 	blog(LOG_INFO, "%s", name.str().c_str());
 	blog(LOG_INFO, "---------------------------------");
 
@@ -7349,9 +7349,9 @@ void OBSBasic::on_actionCheckForUpdates_triggered()
 	else
 		OBSMessageBox::information(
 			this,
-			QString("LDE v") +
+			QString("HB-LDE v") +
 				QString::fromStdString(LDEGetVersion()),
-			"You are using the latest version of LDE.");
+			"You are using the latest version of HB-LDE.");
 #endif
 }
 
@@ -10332,7 +10332,7 @@ void OBSBasic::UpdateTitleBar()
 	//	const char *sceneCollection = config_get_string(
 	//		App()->GlobalConfig(), "Basic", "SceneCollection");
 
-	name << std::string("LDE ") + LDEGetVersion();
+	name << std::string("HB-LDE ") + LDEGetVersion();
 
 	if (previewProgramMode)
 		name << " ";
@@ -10735,7 +10735,7 @@ void OBSBasic::SystemTrayInit()
 #endif
 	trayIcon.reset(new QSystemTrayIcon(
 		QIcon::fromTheme("obs-tray", trayIconFile), this));
-	trayIcon->setToolTip("LDE");
+	trayIcon->setToolTip("HB-LDE");
 
 	showHide = new QAction(QTStr("Basic.SystemTray.Show"), trayIcon.data());
 	sysTrayStream = new QAction(
@@ -10826,7 +10826,7 @@ void OBSBasic::SysTrayNotify(const QString &text,
 	    QSystemTrayIcon::supportsMessages()) {
 		QSystemTrayIcon::MessageIcon icon =
 			QSystemTrayIcon::MessageIcon(n);
-		trayIcon->showMessage("LDE", text, icon, 10000);
+		trayIcon->showMessage("HB-LDE", text, icon, 10000);
 	}
 }
 
@@ -12084,7 +12084,7 @@ std::string OBSBasic::GetLastLDEVersion()
 		curl_easy_cleanup(curl);
 	}
 
-	std::string key_version = "LDE v";
+	std::string key_version = "HB-LDE v";
 
 	auto start_number = readBuffer.find(key_version);
 

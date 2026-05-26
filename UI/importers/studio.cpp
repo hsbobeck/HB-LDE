@@ -276,7 +276,7 @@ int StudioImporter::ImportScenes(const string &path, string &name, Json &res)
 	if (name != "")
 		obj["name"] = name;
 	else
-		obj["name"] = "LDE Import";
+		obj["name"] = "HB-LDE Import";
 
 	res = obj;
 

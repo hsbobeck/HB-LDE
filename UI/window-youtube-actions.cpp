@@ -493,7 +493,7 @@ bool OBSYoutubeActions::CreateEventAction(YoutubeApiWrappers *api,
 	}
 
 	if (!stream_later || ready_broadcast) {
-		stream = {"", "", "LDE Video Stream"};
+		stream = {"", "", "HB-LDE Video Stream"};
 		if (!apiYouTube->InsertStream(stream)) {
 			blog(LOG_DEBUG, "No stream created.");
 			return false;
@@ -557,7 +557,7 @@ bool OBSYoutubeActions::ChooseAnEventAction(YoutubeApiWrappers *api,
 		stream.title = title.c_str();
 		api->SetBroadcastId(selectedBroadcast);
 	} else {
-		stream = {"", "", "LDE Video Stream"};
+		stream = {"", "", "HB-LDE Video Stream"};
 		if (!apiYouTube->InsertStream(stream)) {
 			blog(LOG_DEBUG, "No stream created.");
 			return false;

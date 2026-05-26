@@ -6,7 +6,7 @@
 static auto MakeText(int iteration) -> QString
 {
     std::ostringstream stream{};
-    stream << "LDE v" << obs_get_version_string() << "\nInitializing";
+    stream << "HB-LDE v" << obs_get_version_string() << "\nInitializing";
     if (1 == iteration) {
         stream << ".";
     } else if (2 == iteration) {

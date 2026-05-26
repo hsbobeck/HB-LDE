@@ -389,7 +389,7 @@ bool DownloadWorkerThread()
 
 	const DWORD compressionFlags = WINHTTP_DECOMPRESSION_FLAG_ALL;
 
-	HttpHandle hSession = WinHttpOpen(L"LDE Updater/3.0",
+	HttpHandle hSession = WinHttpOpen(L"HB-LDE Updater/3.0",
 					  WINHTTP_ACCESS_TYPE_DEFAULT_PROXY,
 					  WINHTTP_NO_PROXY_NAME,
 					  WINHTTP_NO_PROXY_BYPASS, 0);
@@ -1148,7 +1148,7 @@ static bool UpdateVS2019Redists(const string &vc_redist_hash)
 
 	const DWORD compressionFlags = WINHTTP_DECOMPRESSION_FLAG_ALL;
 
-	HttpHandle hSession = WinHttpOpen(L"LDE Updater/3.0",
+	HttpHandle hSession = WinHttpOpen(L"HB-LDE Updater/3.0",
 					  WINHTTP_ACCESS_TYPE_DEFAULT_PROXY,
 					  WINHTTP_NO_PROXY_NAME,
 					  WINHTTP_NO_PROXY_BYPASS, 0);
@@ -1940,7 +1940,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, LPWSTR lpCmdLine, int)
 	if (!IsWindows10OrGreater()) {
 		MessageBox(
 			nullptr,
-			L"LDE no longer supports Windows 7,"
+			L"HB-LDE no longer supports Windows 7,"
 			L" Windows 8, or Windows 8.1. You can disable the"
 			L" following setting to opt out of future updates:"
 			L" Settings → General → General → Automatically check"
@@ -1956,7 +1956,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, LPWSTR lpCmdLine, int)
 		if (hMutex) {
 			MessageBox(
 				nullptr,
-				L"LDE Updater must be run as an administrator.",
+				L"HB-LDE Updater must be run as an administrator.",
 				L"Updater Error", MB_ICONWARNING);
 			return 2;
 		}

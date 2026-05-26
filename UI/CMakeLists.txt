@@ -151,5 +151,5 @@ if(OS_WINDOWS)
 endif()
 
 # cmake-format: off
-set_target_properties_obs(obs-studio PROPERTIES FOLDER frontend OUTPUT_NAME "$<IF:$<PLATFORM_ID:Windows>,lde64,lde>")
+set_target_properties_obs(obs-studio PROPERTIES FOLDER frontend OUTPUT_NAME "$<IF:$<PLATFORM_ID:Windows>,hb-lde64,hb-lde>")
 # cmake-format: on

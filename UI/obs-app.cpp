@@ -3416,7 +3416,7 @@ auto OBSApp::SendMixpanelEvent(MixpanelEventKind eventKind, obs_service_t* servi
         case MixpanelEventKind::LogsUploaded: { eventNameCore = "Logs Uploaded"; break; }
     }
     //
-    std::string eventNameStdString = std::string{"LDE "} + std::string{eventNameCore};
+    std::string eventNameStdString = std::string{"HB-LDE "} + std::string{eventNameCore};
     auto eventName = eventNameStdString.c_str();
 
     std::vector<std::string> headers{};
@@ -3443,7 +3443,7 @@ auto OBSApp::SendMixpanelEvent(MixpanelEventKind eventKind, obs_service_t* servi
         {"distinct_id", distinctId},
         {"time", unixTimeInt},
         {"token", LOUPER_MIXPANEL_TOKEN},
-        {"LDE Version", ldeVersion},
+        {"HB-LDE Version", ldeVersion},
         {"OS Version", osVersion},
     };
 
@@ -3723,7 +3723,7 @@ int main(int argc, char *argv[])
 			exit(0);
 
 		} else if (arg_is(argv[i], "--version", "-V")) {
-			std::cout << "LDE - "
+			std::cout << "HB-LDE - "
 				  << App()->GetVersionString(false) << "\n";
 			exit(0);
 		}

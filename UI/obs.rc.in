@@ -8,11 +8,11 @@ BEGIN
     BLOCK "040904B0"
     BEGIN
       VALUE "CompanyName", "Louper.io Ltd"
-      VALUE "FileDescription", "LDE"
+      VALUE "FileDescription", "HB-LDE"
       VALUE "FileVersion", "${UI_VERSION}"
       VALUE "InternalName", "obs"
       VALUE "OriginalFilename", "obs"
-      VALUE "ProductName", "LDE"
+      VALUE "ProductName", "HB-LDE"
       VALUE "ProductVersion", "${UI_VERSION}"
       VALUE "Comments", "Free and open source software for video recording and live streaming"
       VALUE "LegalCopyright", "(C) Louper.io Ltd"

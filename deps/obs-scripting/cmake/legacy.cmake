@@ -68,7 +68,7 @@ target_compile_features(obs-scripting PRIVATE cxx_auto_type)
 target_include_directories(obs-scripting PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(OS_WINDOWS)
-  set(MODULE_DESCRIPTION "LDE scripting module")
+  set(MODULE_DESCRIPTION "HB-LDE scripting module")
   configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-scripting.rc)
 
   target_sources(obs-scripting PRIVATE obs-scripting.rc)

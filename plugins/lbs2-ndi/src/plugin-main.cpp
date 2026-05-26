@@ -55,7 +55,7 @@ const char *obs_module_name()
 
 const char *obs_module_description()
 {
-	return "NDI input/output integration for LDE";
+	return "NDI input/output integration for HB-LDE";
 }
 
 const NDIlib_v4 *ndiLib = nullptr;
@@ -115,7 +115,7 @@ bool obs_module_load(void)
 #endif
 #endif
         //QString redist_url = obs_module_text(redist_url_name);
-		QString message = "NDI™ Runtime not found.<br><br>Please run the LDE installer and install \"NDI Support for LDE\".";
+		QString message = "NDI™ Runtime not found.<br><br>Please run the HB-LDE installer and install \"NDI Support for HB-LDE\".";
         //message += QString("<br><a href='%1'>%1</a>").arg(redist_url);
 
 		QMessageBox::critical(

@@ -43,7 +43,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS TRUE)
 
 # Set default global project variables
 set(OBS_COMPANY_NAME "Louper.io Ltd")
-set(OBS_PRODUCT_NAME "LDE")
+set(OBS_PRODUCT_NAME "HB-LDE")
 set(OBS_WEBSITE "https://louper.io")
 set(OBS_COMMENTS "Free and open source software for video recording and live streaming")
 set(OBS_LEGAL_COPYRIGHT "(C) Louper.io Ltd")

@@ -78,7 +78,7 @@
        <item>
         <widget class="QLabel" name="name">
          <property name="text">
-          <string notr="true">LDE</string>
+          <string notr="true">HB-LDE</string>
          </property>
         </widget>
        </item>

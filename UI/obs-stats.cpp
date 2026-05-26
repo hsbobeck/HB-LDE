@@ -317,7 +317,7 @@ static void gen_encoder_settings(std::string& info_out)
 
 static void gen_lde_version(std::string& info_out)
 {
-	info_out += "\"lbs_version\": \"LDE v" + std::string{obs_get_version_string()} + "\"";
+	info_out += "\"lbs_version\": \"HB-LDE v" + std::string{obs_get_version_string()} + "\"";
 }
 
 

@@ -48,7 +48,7 @@ intptr_t VSTPlugin::hostCallback_static(AEffect *effect, int32_t opcode,
 		return 0;
 
 	case audioMasterGetVendorString:
-		strncpy((char *)ptr, "LDE", 11);
+		strncpy((char *)ptr, "HB-LDE", 11);
 		return 1;
 
 	case audioMasterGetTime:
