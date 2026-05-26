@@ -4259,11 +4259,6 @@ bool OBSBasicSettings::QueryAllowedToClose()
     QString serverUrl = ui->customServer->text().trimmed();
     if (serverUrl.isEmpty())
         serverUrl = ui->key->text().trimmed();
-    //
-    if (!LdeIsStreamServerUrlAcceptable(serverUrl)) {
-        LdeWarnServerUrlUnacceptable(this);
-        return false;
-    }
 
     if (!serverUrl.isEmpty()) {
         auto protocolKindQ = MakeProtocolKindQFromServerUrl(serverUrl);

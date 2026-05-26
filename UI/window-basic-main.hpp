@@ -1364,7 +1364,3 @@ public:
 protected:
 	virtual bool eventFilter(QObject *editor, QEvent *event) override;
 };
-
-auto LdeIsStreamServerUrlAcceptable(const char* serverUrl) -> bool;
-auto LdeIsStreamServerUrlAcceptable(const QString& serverUrl) -> bool;
-auto LdeWarnServerUrlUnacceptable(QWidget* parent) -> void;
