@@ -150,6 +150,17 @@ if(OS_WINDOWS)
     VERBATIM)
 endif()
 
+if(OS_MACOS)
+  add_custom_command(
+    TARGET obs-studio
+    POST_BUILD
+    COMMAND
+      /usr/bin/python3 "${CMAKE_SOURCE_DIR}/cmake/macos/bundle-absolute-deps.py" "$<TARGET_FILE:obs-studio>"
+      "${CMAKE_CURRENT_SOURCE_DIR}/cmake/macos/entitlements.plist"
+    COMMENT "Bundle non-system dylibs into the application"
+    VERBATIM)
+endif()
+
 # cmake-format: off
 set_target_properties_obs(obs-studio PROPERTIES FOLDER frontend OUTPUT_NAME "$<IF:$<PLATFORM_ID:Windows>,hb-lde64,hb-lde>")
 # cmake-format: on
